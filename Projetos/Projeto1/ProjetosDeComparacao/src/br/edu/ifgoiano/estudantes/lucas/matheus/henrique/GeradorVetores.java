@@ -1,3 +1,5 @@
+package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
+
 public class GeradorVetores {
 
     public int[] vetorAleatorio (int tamanho){

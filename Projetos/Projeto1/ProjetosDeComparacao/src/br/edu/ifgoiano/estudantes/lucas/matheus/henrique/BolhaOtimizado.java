@@ -9,7 +9,7 @@ public class BolhaOtimizado {
 
         for (int i = 0; i < inicial - 1; i++){
             trocado = false;
-            for (int j = i + 1; j < inicial - 1 - i; j++){
+            for (int j = 0; j < inicial - 1 - i; j++){
                 if (vetor[j] > vetor[i + 1]){
                     //contador++;
                     int temp = vetor[j];
@@ -24,8 +24,12 @@ public class BolhaOtimizado {
                 }
             }
         }
+        //System.out.println(contadorTroca);
+        long inicio = System.nanoTime();
+        long fim = System.nanoTime();
 
-        System.out.println(contadorTroca);
+        System.out.println(fim - inicio);
+
         return vetor;
     }
 }

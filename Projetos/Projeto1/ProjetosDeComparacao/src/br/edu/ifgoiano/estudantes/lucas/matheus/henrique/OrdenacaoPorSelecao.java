@@ -1,3 +1,5 @@
+package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
+
 public class OrdenacaoPorSelecao {
 
     public int [] ordenandoPorSelecao(int[] arrayParaOrdenar) {
