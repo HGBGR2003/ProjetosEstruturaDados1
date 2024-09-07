@@ -4,11 +4,15 @@ public class Main {
     public static void main(String[] args) {
         GeradorVetores novo = new GeradorVetores();
 
-        OrdenacaoPorInsercao novaOrdenacaoPorInsercao = new OrdenacaoPorInsercao();
-        novaOrdenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(100));
+        OrdenacaoPorInsercao ordenacaoPorInsercao = new OrdenacaoPorInsercao();
+        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(100));
+        //Exibindo relatório
+        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
 
-        OrdenacaoPorSelecao novoOdP = new OrdenacaoPorSelecao();
-        novoOdP.ordenandoPorSelecao(novo.vetorAleatorio(100));
+        OrdenacaoPorSelecao ordenacaoPorSelecao = new OrdenacaoPorSelecao();
+        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorAleatorio(100));
+        //Exibindo relatório
+        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
 
         BolhaOtimizado bo = new BolhaOtimizado();
         bo.bolhaOtimizado(novo.vetorAleatorio(1000));
