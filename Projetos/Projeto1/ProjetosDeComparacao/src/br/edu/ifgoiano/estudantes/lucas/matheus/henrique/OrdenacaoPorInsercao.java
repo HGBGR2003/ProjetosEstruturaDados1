@@ -1,4 +1,5 @@
 package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
+
 public class OrdenacaoPorInsercao {
 
     public int[] ordenacaoInsercao(int[] arrayParaOrdenar) {
