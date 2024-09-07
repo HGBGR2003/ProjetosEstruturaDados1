@@ -1,16 +1,24 @@
+import br.edu.ifgoiano.estudantes.lucas.matheus.henrique.BolhaOtimizado;
+
 public class Main {
 
     public static void main(String[] args) {
 
         GeradorVetores novo = new GeradorVetores();
-
+        /*
         OrdenacaoPorInsercao novaOrdenacaoPorInsercao = new OrdenacaoPorInsercao();
         int[] vetorOrdenadoPorInsercao = novaOrdenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(100));
-        exibeArray(vetorOrdenadoPorInsercao);
+        //exibeArray(vetorOrdenadoPorInsercao);
 
         OrdenacaoPorSelecao novoOdP = new OrdenacaoPorSelecao();
         int [] vetorOrdenadoPorSelecao = novoOdP.ordenandoPorSelecao(novo.vetorAleatorio(100));
         exibeArray(vetorOrdenadoPorSelecao);
+        */
+
+
+        BolhaOtimizado bo = new BolhaOtimizado();
+        bo.bolhaOtimizado(novo.vetorAleatorio(100));
+
     }
 
     public static void exibeArray(int[] vetorMantado) {
