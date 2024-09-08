@@ -15,7 +15,7 @@ public class BolhaOtimizado {
             trocado = false;
             for (int j = 0; j < inicial - 1 - i; j++){
                 if (vetor[j] > vetor[i + 1]){
-                    //contador++;
+                    contador++;
                     int temp = vetor[j];
                     contadorTroca++;
                     vetor[j] = vetor[j  + 1];
@@ -28,11 +28,15 @@ public class BolhaOtimizado {
                 }
             }
         }
-        System.out.println(contadorTroca);
-        
+
         long fim = System.nanoTime();
 
-        System.out.println(fim - inicio);
+        long resultado = fim - inicio;
+
+        System.out.println("Quantidade de comparações (Bolha Otimizado): " + contador);
+        System.out.println("Quantidade de trocas: " + contadorTroca);
+        System.out.println("Tempo de execução (ns): " + resultado);
+
 
         return vetor;
     }

@@ -32,7 +32,7 @@ public class Main {
         bo.bolhaOtimizado(novo.vetorAleatorio(1000));
 
 
-    bolha(1000);
+        //bolha(1000);
         
     }
 
