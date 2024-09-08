@@ -8,7 +8,7 @@ public class Bolha {
         boolean troca;
         int comparacoes = 0; 
         int trocas = 0; 
-        long startTime = System.currentTimeMillis(); 
+        long startTime = System.nanoTime(); 
 
         for (int i = 0; i < n - 1; i++) {
             troca = false;
@@ -31,13 +31,13 @@ public class Bolha {
             }
         }
 
-        long endTime = System.currentTimeMillis(); 
+        long endTime = System.nanoTime(); 
         long tempoExecucao = endTime - startTime; 
 
         // Print the metrics
-        System.out.println("Quantidade de comparações: " + comparacoes);
+        System.out.println("Quantidade de comparações (Bolha): " + comparacoes);
         System.out.println("Quantidade de trocas: " + trocas);
-        System.out.println("Tempo de execução (ms): " + tempoExecucao);
+        System.out.println("Tempo de execução (ns): " + tempoExecucao);
 
         return vetor;
     }

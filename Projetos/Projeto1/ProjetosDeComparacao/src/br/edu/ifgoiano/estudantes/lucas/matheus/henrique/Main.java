@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         GeradorVetores novo = new GeradorVetores();
 
-//        insercao(1000);
+//   insercao(1000);
 //        insercao(5000);
 //        insercao(10000);
 //        insercao(15000);
@@ -31,8 +31,9 @@ public class Main {
         BolhaOtimizado bo = new BolhaOtimizado();
         bo.bolhaOtimizado(novo.vetorAleatorio(1000));
 
-        Bolha bolha1 = new Bolha();
-        bolha1.bolha(novo.vetorAleatorio(10000));
+
+    bolha(1000);
+        
     }
 
     public static void exibeArrayParaTeste(int[] vetorMantado) {
@@ -45,31 +46,58 @@ public class Main {
     public static void insercao (int tamanho){
         System.out.println("🔹 Tamanho do array: " + tamanho);
         GeradorVetores novo = new GeradorVetores();
+        
         OrdenacaoPorInsercao ordenacaoPorInsercao = new OrdenacaoPorInsercao();
-        System.out.println("\bVetor aleatório");
-        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(tamanho));
-        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
-        System.out.println("\bVetor decrescente");
-        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorDecrescente(tamanho));
-        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
+
         System.out.println("\bVetor crescente");
         ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorCrescente(tamanho));
         ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
+
+        System.out.println("\bVetor decrescente");
+        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorDecrescente(tamanho));
+        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
+        
+        System.out.println("\bVetor aleatório");
+        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(tamanho));
+        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
+        
+       
     }
 
     public static void selecao(int tamanho){
         System.out.println("🔹 Tamanho do array: " + tamanho);
         GeradorVetores novo = new GeradorVetores();
         OrdenacaoPorSelecao ordenacaoPorSelecao = new OrdenacaoPorSelecao();
-        System.out.println("\bVetor aleatório");
-        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorAleatorio(tamanho));
-        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
-        System.out.println("\bVetor decrescente");
-        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorDecrescente(tamanho));
-        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
+
         System.out.println("\bVetor crescente");
         ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorCrescente(tamanho));
         ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
+
+        System.out.println("\bVetor decrescente");
+        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorDecrescente(tamanho));
+        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
+
+        System.out.println("\bVetor aleatório");
+        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorAleatorio(tamanho));
+        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
+        
+        
+    }
+
+    public static void bolha(int tamanho){
+        Bolha bolha1 = new Bolha();
+        GeradorVetores novo = new GeradorVetores();
+
+        System.out.println("\nVetor Crescente: ");
+        bolha1.bolha(novo.vetorCrescente(tamanho));
+
+        System.out.println("\nVetor Decrescente: ");
+        bolha1.bolha(novo.vetorDecrescente(tamanho));
+
+        System.out.println("\nVetor Aleatorio: ");
+        bolha1.bolha(novo.vetorAleatorio(tamanho));
+
+
     }
 
 

@@ -1,12 +1,16 @@
 package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
 
 public class BolhaOtimizado {
+
+    int contador = 0;
+    int contadorTroca = 0;
+
     public int [] bolhaOtimizado(int [] vetor){
+        long inicio = System.nanoTime();
         int inicial = vetor.length;
         boolean trocado;
-        int contador = 0;
-        int contadorTroca = 0;
-
+        
+        
         for (int i = 0; i < inicial - 1; i++){
             trocado = false;
             for (int j = 0; j < inicial - 1 - i; j++){
@@ -24,8 +28,8 @@ public class BolhaOtimizado {
                 }
             }
         }
-        //System.out.println(contadorTroca);
-        long inicio = System.nanoTime();
+        System.out.println(contadorTroca);
+        
         long fim = System.nanoTime();
 
         System.out.println(fim - inicio);
