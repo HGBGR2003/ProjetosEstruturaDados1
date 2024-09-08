@@ -14,12 +14,14 @@ public class BolhaOtimizado {
         for (int i = 0; i < inicial - 1; i++){
             trocado = false;
             for (int j = 0; j < inicial - 1 - i; j++){
+                contador++;
                 if (vetor[j] > vetor[i + 1]){
-                    contador++;
+                    
                     int temp = vetor[j];
-                    contadorTroca++;
+                    
                     vetor[j] = vetor[j  + 1];
                     vetor[j + 1] = temp;
+                    contadorTroca++;
                     trocado = true;
                 }
 

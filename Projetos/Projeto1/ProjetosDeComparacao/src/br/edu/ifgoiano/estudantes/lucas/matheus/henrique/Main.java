@@ -4,36 +4,55 @@ public class Main {
     public static void main(String[] args) {
         GeradorVetores novo = new GeradorVetores();
 
-//   insercao(1000);
-//        insercao(5000);
-//        insercao(10000);
-//        insercao(15000);
-//        insercao(20000);
-//        insercao(25000);
-//        insercao(30000);
-//        insercao(35000);
-//        insercao(40000);
-//        insercao(45000);
-//        insercao(50000);
+  insercao(1000);
+       insercao(5000);
+       insercao(10000);
+       insercao(15000);
+       insercao(20000);
+       insercao(25000);
+       insercao(30000);
+       insercao(35000);
+       insercao(40000);
+       insercao(45000);
+       insercao(50000);
 
-//        selecao(1000);
-//        selecao(5000);
-//        selecao(10000);
-//        selecao(15000);
-//        selecao(20000);
-//        selecao(25000);
-//        selecao(30000);
-//        selecao(35000);
-//        selecao(40000);
-//        selecao(45000);
-//        selecao(50000);
+       selecao(1000);
+       selecao(5000);
+       selecao(10000);
+       selecao(15000);
+       selecao(20000);
+       selecao(25000);
+       selecao(30000);
+       selecao(35000);
+       selecao(40000);
+       selecao(45000);
+       selecao(50000);
 
-        BolhaOtimizado bo = new BolhaOtimizado();
-        bo.bolhaOtimizado(novo.vetorAleatorio(1000));
+bolha(1000);
+       bolha(5000);
+       bolha(10000);
+       bolha(15000);
+       bolha(20000);
+       bolha(25000);
+       bolha(30000);
+       bolha(35000);
+       bolha(40000);
+       bolha(45000);
+       bolha(50000);
+
+       bolhaOtimizado(1000);
+       bolhaOtimizado(5000);
+       bolhaOtimizado(10000);
+       bolhaOtimizado(15000);
+       bolhaOtimizado(20000);
+       bolhaOtimizado(25000);
+       bolhaOtimizado(30000);
+       bolhaOtimizado(35000);
+       bolhaOtimizado(40000);
+       bolhaOtimizado(45000);
+       bolhaOtimizado(50000);
 
 
-        //bolha(1000);
-        
     }
 
     public static void exibeArrayParaTeste(int[] vetorMantado) {
@@ -96,6 +115,22 @@ public class Main {
 
         System.out.println("\nVetor Aleatorio: ");
         bolha1.bolha(novo.vetorAleatorio(tamanho));
+
+
+    }
+
+    public static void bolhaOtimizado(int tamanho){
+        BolhaOtimizado bo = new BolhaOtimizado();
+        GeradorVetores novo = new GeradorVetores();
+
+        System.out.println("\nVetor Crescente: ");
+        bo.bolhaOtimizado(novo.vetorCrescente(tamanho));
+
+        System.out.println("\nVetor Decrescente: ");
+        bo.bolhaOtimizado(novo.vetorDecrescente(tamanho));
+
+        System.out.println("\nVetor Aleatorio: ");
+        bo.bolhaOtimizado(novo.vetorAleatorio(tamanho));
 
 
     }
