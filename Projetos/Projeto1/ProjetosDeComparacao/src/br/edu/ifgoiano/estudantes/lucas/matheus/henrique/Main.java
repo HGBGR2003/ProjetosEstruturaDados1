@@ -12,6 +12,9 @@ public class Main {
 
         BolhaOtimizado bo = new BolhaOtimizado();
         bo.bolhaOtimizado(novo.vetorAleatorio(1000));
+
+        Bolha bolha1 = new Bolha();
+        bolha1.bolha(novo.vetorAleatorio(10000));
     }
 
     public static void exibeArray(int[] vetorMantado) {
