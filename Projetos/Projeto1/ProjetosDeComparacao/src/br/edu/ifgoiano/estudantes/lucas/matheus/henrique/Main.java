@@ -53,6 +53,7 @@ bolha(1000);
        bolhaOtimizado(50000);
 
 
+
     }
 
     public static void exibeArrayParaTeste(int[] vetorMantado) {
@@ -131,6 +132,30 @@ bolha(1000);
 
         System.out.println("\nVetor Aleatorio: ");
         bo.bolhaOtimizado(novo.vetorAleatorio(tamanho));
+
+
+    }
+
+    public static void HeapSort(int tamanho){
+        HeapMetodo hm = new HeapMetodo();
+        GeradorVetores novo = new GeradorVetores();
+
+        System.out.println("\nVetor Crescente: ");
+        int[] crescente = novo.vetorCrescente(tamanho);
+        hm.heapSort(crescente);
+        hm.imprivirVetor(crescente);
+
+        System.out.println("Ola Mundo");
+
+        //Algo
+
+        /* Continua mais tarde.
+           System.out.println("\nVetor Decrescente: ");
+        hm.heapSort(novo.vetorDecrescente(tamanho));
+
+        System.out.println("\nVetor Aleatorio: ");
+        hm.heapSort(novo.vetorAleatorio(tamanho));
+        */
 
 
     }
