@@ -11,9 +11,10 @@ public class Main {
         gerador.generateArray(50000);
 
         // Testes de seleção e bolha com diferentes tamanhos
-        selecao(1000, gerador);
-        bolha(1000, gerador);
-        quickSort(2000, gerador); //o QuickSort ainda pode realizar trocas mesmo se o array já estiver ordenado. Isso depende da forma como o pivô é escolhido e da implementação do algoritmo.
+        // selecao(1000, gerador);
+        // bolha(1000, gerador);
+        quickSort(1000, gerador); //o QuickSort ainda pode realizar trocas mesmo se o array já estiver ordenado. Isso depende da forma como o pivô é escolhido e da implementação do algoritmo.
+        heapSort(1000, gerador);
 
     }
 
@@ -93,5 +94,31 @@ public class Main {
         System.out.println("\nVetor Decrescente: ");
         qs.quickSort(reverseSortedArray.clone());
         qs.relatorioQuickSort();
+    }
+
+    public static void heapSort(int tamanho, ArrayGenerator gerador) {
+        HeapSort hs = new HeapSort();
+
+        System.out.println("\n--- Testando HeapSort com vetor de tamanho " + tamanho + " ---");
+
+        // Recorta os pedaços do array original gerado e faz uma cópia
+        int[] originalArray = Arrays.copyOfRange(gerador.getOriginalArray(), 0, tamanho);
+        int[] sortedArray = Arrays.copyOfRange(gerador.getSortedArray(), 0, tamanho);
+        int[] reverseSortedArray = Arrays.copyOfRange(gerador.getReverseSortedArray(), 0, tamanho);
+
+        // Vetor Aleatório (Original)
+        System.out.println("\nVetor Aleatório: ");
+        hs.heapSort(originalArray.clone());
+        hs.relatorioHeapSort();
+
+        // Vetor Crescente (Ordenado)
+        System.out.println("\nVetor Crescente: ");
+        hs.heapSort(sortedArray.clone());
+        hs.relatorioHeapSort();
+
+        // Vetor Decrescente (Ordenado de forma reversa)
+        System.out.println("\nVetor Decrescente: ");
+        hs.heapSort(reverseSortedArray.clone());
+        hs.relatorioHeapSort();
     }
 }
