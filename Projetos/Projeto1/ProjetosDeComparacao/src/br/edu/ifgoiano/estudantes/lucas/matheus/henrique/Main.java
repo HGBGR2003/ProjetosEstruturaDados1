@@ -1,184 +1,97 @@
 package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
 
+import java.util.Arrays;
+
 public class Main {
+
     public static void main(String[] args) {
-        GeradorVetores novo = new GeradorVetores();
+        // Inicializa o gerador de vetores
+        ArrayGenerator gerador = new ArrayGenerator();
+        // Gera um array grande (por exemplo, 50.000 elementos)
+        gerador.generateArray(50000);
 
-
-        
-        QuickSort q1 = new QuickSort();
-
-        q1.quickSort(novo.vetorAleatorio(5000), 0 , 4999);
-        int[] valorExibido = q1.getExibir();
-        for (int i = 0; i < 50; i++) {
-            
-            System.out.println(valorExibido[i]);
-        }
-
-
-    
-
-
-//        insercao(1000);
-//        insercao(5000);
-//        insercao(10000);
-//        insercao(15000);
-//        insercao(20000);
-//        insercao(25000);
-//        insercao(30000);
-//        insercao(35000);
-//        insercao(40000);
-//        insercao(45000);
-//        insercao(50000);
-
-//        selecao(1000);
-//        selecao(5000);
-//        selecao(10000);
-//        selecao(15000);
-//        selecao(20000);
-//        selecao(25000);
-//        selecao(30000);
-//        selecao(35000);
-//        selecao(40000);
-//        selecao(45000);
-//        selecao(50000);
-
-// bolha(1000);
-//        bolha(5000);
-//        bolha(10000);
-//        bolha(15000);
-//        bolha(20000);
-//        bolha(25000);
-//        bolha(30000);
-//        bolha(35000);
-//        bolha(40000);
-//        bolha(45000);
-//        bolha(50000);
-
-//        bolhaOtimizado(1000);
-//        bolhaOtimizado(5000);
-//        bolhaOtimizado(10000);
-//        bolhaOtimizado(15000);
-//        bolhaOtimizado(20000);
-//        bolhaOtimizado(25000);
-//        bolhaOtimizado(30000);
-//        bolhaOtimizado(35000);
-//        bolhaOtimizado(40000);
-//        bolhaOtimizado(45000);
-//        bolhaOtimizado(50000);
-
-
+        // Testes de seleção e bolha com diferentes tamanhos
+        selecao(1000, gerador);
+        bolha(1000, gerador);
+        quickSort(2000, gerador); //o QuickSort ainda pode realizar trocas mesmo se o array já estiver ordenado. Isso depende da forma como o pivô é escolhido e da implementação do algoritmo.
 
     }
 
-    private static void QuickSort(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'QuickSort'");
-    }
+    // Método para realizar os testes de ordenação por seleção
+    public static void selecao(int tamanho, ArrayGenerator gerador) {
+        OrdenacaoPorSelecao os = new OrdenacaoPorSelecao();
 
-    public static void exibeArrayParaTeste(int[] vetorMantado) {
-        for (int i = 1; i <= vetorMantado.length - 1; i++) {
-            System.out.println(vetorMantado[i]);
-        }
-        System.out.println("\b");
-    }
+        System.out.println("\n--- Testando Ordenação por Seleção com vetor de tamanho " + tamanho + " ---");
 
-    public static void insercao (int tamanho){
-        System.out.println("🔹 Tamanho do array: " + tamanho);
-        GeradorVetores novo = new GeradorVetores();
-        
-        OrdenacaoPorInsercao ordenacaoPorInsercao = new OrdenacaoPorInsercao();
+        // Recorta os pedaços do array original gerado e faz uma cópia
+        int[] originalArray = Arrays.copyOfRange(gerador.getOriginalArray(), 0, tamanho);
+        int[] sortedArray = Arrays.copyOfRange(gerador.getSortedArray(), 0, tamanho);
+        int[] reverseSortedArray = Arrays.copyOfRange(gerador.getReverseSortedArray(), 0, tamanho);
 
-        System.out.println("\bVetor crescente");
-        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorCrescente(tamanho));
-        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
+        // Vetor Aleatório (Original)
+        System.out.println("\nVetor Aleatório: ");
+        os.ordenandoPorSelecao(originalArray.clone());  // Clona o array para não modificar o original
+        os.relatorioOrdenacaoSelecao();
 
-        System.out.println("\bVetor decrescente");
-        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorDecrescente(tamanho));
-        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
-        
-        System.out.println("\bVetor aleatório");
-        ordenacaoPorInsercao.ordenacaoInsercao(novo.vetorAleatorio(tamanho));
-        ordenacaoPorInsercao.relatorioOrdenacaoInsercao();
-        
-       
-    }
-
-    public static void selecao(int tamanho){
-        System.out.println("🔹 Tamanho do array: " + tamanho);
-        GeradorVetores novo = new GeradorVetores();
-        OrdenacaoPorSelecao ordenacaoPorSelecao = new OrdenacaoPorSelecao();
-
-        System.out.println("\bVetor crescente");
-        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorCrescente(tamanho));
-        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
-
-        System.out.println("\bVetor decrescente");
-        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorDecrescente(tamanho));
-        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
-
-        System.out.println("\bVetor aleatório");
-        ordenacaoPorSelecao.ordenandoPorSelecao(novo.vetorAleatorio(tamanho));
-        ordenacaoPorSelecao.relatorioOrdenacaoSelecao();
-        
-        
-    }
-
-    public static void bolha(int tamanho){
-        Bolha bolha1 = new Bolha();
-        GeradorVetores novo = new GeradorVetores();
-
+        // Vetor Crescente (Ordenado)
         System.out.println("\nVetor Crescente: ");
-        bolha1.bolha(novo.vetorCrescente(tamanho));
+        os.ordenandoPorSelecao(sortedArray.clone());
+        os.relatorioOrdenacaoSelecao();
 
+        // Vetor Decrescente (Ordenado de forma reversa)
         System.out.println("\nVetor Decrescente: ");
-        bolha1.bolha(novo.vetorDecrescente(tamanho));
-
-        System.out.println("\nVetor Aleatorio: ");
-        bolha1.bolha(novo.vetorAleatorio(tamanho));
-
-
+        os.ordenandoPorSelecao(reverseSortedArray.clone());
+        os.relatorioOrdenacaoSelecao();
     }
 
-    public static void bolhaOtimizado(int tamanho){
-        BolhaOtimizado bo = new BolhaOtimizado();
-        GeradorVetores novo = new GeradorVetores();
+    // Método para realizar os testes de ordenação por bolha otimizado
+    public static void bolha(int tamanho, ArrayGenerator gerador) {
+        BolhaOtimizado bolha1 = new BolhaOtimizado();
 
+        System.out.println("\n--- Testando Bolha Otimizado com vetor de tamanho " + tamanho + " ---");
+
+        // Recorta os pedaços do array original gerado e faz uma cópia
+        int[] originalArray = Arrays.copyOfRange(gerador.getOriginalArray(), 0, tamanho);
+        int[] sortedArray = Arrays.copyOfRange(gerador.getSortedArray(), 0, tamanho);
+        int[] reverseSortedArray = Arrays.copyOfRange(gerador.getReverseSortedArray(), 0, tamanho);
+
+        // Vetor Aleatório (Original)
+        System.out.println("\nVetor Aleatório: ");
+        bolha1.bolhaOtimizado(originalArray.clone());  // Clona o array para não modificar o original
+
+        // Vetor Crescente (Ordenado)
         System.out.println("\nVetor Crescente: ");
-        bo.bolhaOtimizado(novo.vetorCrescente(tamanho));
+        bolha1.bolhaOtimizado(sortedArray.clone());
 
+        // Vetor Decrescente (Ordenado de forma reversa)
         System.out.println("\nVetor Decrescente: ");
-        bo.bolhaOtimizado(novo.vetorDecrescente(tamanho));
-
-        System.out.println("\nVetor Aleatorio: ");
-        bo.bolhaOtimizado(novo.vetorAleatorio(tamanho));
-
-
+        bolha1.bolhaOtimizado(reverseSortedArray.clone());
     }
 
-    public static void HeapSort(int tamanho){
-        HeapMetodo hm = new HeapMetodo();
-        GeradorVetores novo = new GeradorVetores();
+    // Método para realizar os testes de ordenação com QuickSort
+    public static void quickSort(int tamanho, ArrayGenerator gerador) {
+        QuickSort qs = new QuickSort();
 
+        System.out.println("\n--- Testando QuickSort com vetor de tamanho " + tamanho + " ---");
+
+        // Recorta os pedaços do array original gerado e faz uma cópia
+        int[] originalArray = Arrays.copyOfRange(gerador.getOriginalArray(), 0, tamanho);
+        int[] sortedArray = Arrays.copyOfRange(gerador.getSortedArray(), 0, tamanho);
+        int[] reverseSortedArray = Arrays.copyOfRange(gerador.getReverseSortedArray(), 0, tamanho);
+
+        // Vetor Aleatório (Original)
+        System.out.println("\nVetor Aleatório: ");
+        qs.quickSort(originalArray.clone());
+        qs.relatorioQuickSort();
+
+        // Vetor Crescente (Ordenado)
         System.out.println("\nVetor Crescente: ");
-        int[] crescente = novo.vetorCrescente(tamanho);
-        hm.heapSort(crescente);
-        hm.imprivirVetor(crescente);
+        qs.quickSort(sortedArray.clone());
+        qs.relatorioQuickSort();
 
-        System.out.println("Ola Mundo");
-
-        //Algo
-
-        /* Continua mais tarde.
-           System.out.println("\nVetor Decrescente: ");
-        hm.heapSort(novo.vetorDecrescente(tamanho));
-
-        System.out.println("\nVetor Aleatorio: ");
-        hm.heapSort(novo.vetorAleatorio(tamanho));
-        */
-
-
+        // Vetor Decrescente (Ordenado de forma reversa)
+        System.out.println("\nVetor Decrescente: ");
+        qs.quickSort(reverseSortedArray.clone());
+        qs.relatorioQuickSort();
     }
-
-
 }
