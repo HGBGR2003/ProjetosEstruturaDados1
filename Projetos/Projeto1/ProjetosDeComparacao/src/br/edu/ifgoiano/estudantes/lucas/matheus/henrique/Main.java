@@ -14,8 +14,8 @@ public class Main {
         // selecao(1000, gerador);
         // bolha(1000, gerador);
         //quickSort(1000, gerador); //o QuickSort ainda pode realizar trocas mesmo se o array já estiver ordenado. Isso depende da forma como o pivô é escolhido e da implementação do algoritmo.
-        //heapSort(1000, gerador);
-        mergeSort(1000, gerador);
+        heapSort(1000, gerador);
+       // mergeSort(1000, gerador);
 
     }
 

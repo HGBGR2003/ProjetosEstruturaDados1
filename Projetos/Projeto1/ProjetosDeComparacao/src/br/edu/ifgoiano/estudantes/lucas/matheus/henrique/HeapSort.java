@@ -2,39 +2,28 @@ package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
 
 public class HeapSort {
 
-    //Precisa ser consertado
     private int comparacoes = 0;
     private int trocas = 0;
     private long tempoExecucao;
 
-    // Método principal que ordena o array usando HeapSort
     public int[] heapSort(int[] arrayParaOrdenar) {
-        // Reseta as contagens de comparações e trocas
-        comparacoes = 0;
-        trocas = 0;
+        long comecoInicio = System.nanoTime();  // Marca o início da execução
+        int n = arrayParaOrdenar.length;
 
-        long inicio = System.nanoTime(); // Início do cálculo de tempo
-
-        int size = arrayParaOrdenar.length;
-
-        // Constrói o heap (rearranja o array)
-        for (int i = size / 2 - 1; i >= 0; i--) {
-            heapify(arrayParaOrdenar, size, i);
+        // Constrói o heap (reorganiza o array)
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arrayParaOrdenar, n, i);
         }
 
-        // Extrai um elemento do heap um por um
-        for (int i = size - 1; i >= 0; i--) {
-            // Move o maior elemento (raiz) para o final
-            int temp = arrayParaOrdenar[0];
-            arrayParaOrdenar[0] = arrayParaOrdenar[i];
-            arrayParaOrdenar[i] = temp;
-            trocas++; // Conta a troca
+        // Extrai um por um os elementos do heap
+        for (int i = n - 1; i > 0; i--) {
+            // Move a raiz atual para o final
+            swap(arrayParaOrdenar, 0, i);
 
-            // Chama heapify na árvore reduzida
+            // Chama heapify na raiz
             heapify(arrayParaOrdenar, i, 0);
         }
-
-        tempoExecucao = System.nanoTime() - inicio; // Fim do cálculo de tempo
+        tempoExecucao = System.nanoTime() - comecoInicio;
         return arrayParaOrdenar;
     }
 
@@ -44,33 +33,29 @@ public class HeapSort {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
-        // Se o filho da esquerda é maior que a raiz
-        if (left < size) {
-            comparacoes++; // Conta a comparação
-            if (array[left] > array[max]) {
-                max = left;
-            }
+        comparacoes++;
+
+        if (left < size && array[left] > array[max]) {
+            max = left;
         }
 
-        // Se o filho da direita é maior que o max atual
-        if (right < size) {
-            comparacoes++; // Conta a comparação
-            if (array[right] > array[max]) {
-                max = right;
-            }
+        comparacoes++; // Conta a comparação
+
+        if (right < size && array[right] > array[max]) {
+            max = right;
         }
 
-        // Se o max não é a raiz
         if (max != i) {
-            // Troca a raiz com o maior filho
-            int temp = array[i];
-            array[i] = array[max];
-            array[max] = temp;
-            trocas++; // Conta a troca
-
-            // Chama heapify recursivamente para o sub-heap afetado
+            swap(array, i, max);
             heapify(array, size, max);
         }
+    }
+
+    public void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        trocas++;
     }
 
     // Método que exibe o relatório de comparações, trocas e tempo de execução
