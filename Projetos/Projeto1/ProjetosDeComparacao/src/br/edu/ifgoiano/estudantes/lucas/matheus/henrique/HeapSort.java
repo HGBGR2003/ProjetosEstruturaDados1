@@ -2,6 +2,7 @@ package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
 
 public class HeapSort {
 
+    //Precisa ser consertado
     private int comparacoes = 0;
     private int trocas = 0;
     private long tempoExecucao;
