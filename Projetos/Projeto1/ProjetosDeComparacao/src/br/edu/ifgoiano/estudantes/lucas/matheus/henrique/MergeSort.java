@@ -29,13 +29,11 @@ public class MergeSort {
         for (int i = 0; i < esquerda.length; ++i) {
             if(i!=0)this.comparacoes++;
             esquerda[i] = array[inicio + i];
-            this.trocas++;
         }
         this.comparacoes++;
         for (int i = 0; i < direita.length; ++i) {
             if(i!=0)this.comparacoes++;
             direita[i] = array[meio + 1 + i];
-            this.trocas++;
         }
 
         int eIndex = 0;
