@@ -1,11 +1,15 @@
 package br.edu.ifgoiano.estudantes.lucas.matheus.henrique;
 
 public class MergeSort {
+
     private int trocas = 0;
     private int comparacoes = 0;
     private long tempo = 0;
 
     public void mergeSort(int[] array, int inicio, int fim) {
+        trocas = 0;
+        comparacoes = 0;
+        tempo = 0;
         long inicioExecucao = System.nanoTime();
 
         this.comparacoes += 1;
@@ -17,22 +21,26 @@ public class MergeSort {
 
             merge(array, inicio, meio, fim);
         }
-        this.tempo += System.nanoTime() - inicioExecucao;
+        this.tempo = System.nanoTime() - inicioExecucao;
     }
 
     public void merge(int[] array, int inicio, int meio, int fim) {
-        long inicioExecucao = System.nanoTime();
+
         int[] esquerda = new int[meio - inicio + 1];
         int[] direita = new int[fim - meio];
 
         this.comparacoes++;
         for (int i = 0; i < esquerda.length; ++i) {
-            if(i!=0)this.comparacoes++;
+            if (i != 0) {
+                this.comparacoes++;
+            }
             esquerda[i] = array[inicio + i];
         }
         this.comparacoes++;
         for (int i = 0; i < direita.length; ++i) {
-            if(i!=0)this.comparacoes++;
+            if (i != 0) {
+                this.comparacoes++;
+            }
             direita[i] = array[meio + 1 + i];
         }
 
@@ -67,7 +75,7 @@ public class MergeSort {
             this.trocas++;
             array[aIndex++] = direita[dIndex++];
         }
-        this.tempo += System.nanoTime() - inicioExecucao;
+
     }
 
     public void relatorioMergeSort() {

@@ -14,8 +14,13 @@ public class Main {
         // selecao(1000, gerador);
         // bolha(1000, gerador);
         //quickSort(1000, gerador); //o QuickSort ainda pode realizar trocas mesmo se o array já estiver ordenado. Isso depende da forma como o pivô é escolhido e da implementação do algoritmo.
-        heapSort(1000, gerador);
-       // mergeSort(1000, gerador);
+        int[] tamanhos = {1000, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000};
+
+        for (int tamanho : tamanhos) {
+            quickSort(tamanho, gerador);
+            mergeSort(tamanho, gerador);
+            heapSort(tamanho, gerador);
+        }
 
     }
 
@@ -124,7 +129,7 @@ public class Main {
         hs.relatorioHeapSort();
     }
 
-    public static void mergeSort (int tamanho, ArrayGenerator gerador){
+    public static void mergeSort(int tamanho, ArrayGenerator gerador) {
         MergeSort mergeSort = new MergeSort();
 
         System.out.println("\n--- Testando MergeSort com vetor de tamanho " + tamanho + " ---");
@@ -136,21 +141,20 @@ public class Main {
 
         // Vetor Aleatório (Original)
         System.out.println("\nVetor Aleatório: ");
-        mergeSort.mergeSort(originalArray.clone(), 0, originalArray.clone().length-1);
+        mergeSort.mergeSort(originalArray.clone(), 0, originalArray.clone().length - 1);
         mergeSort.relatorioMergeSort();
 
         // Vetor Crescente (Ordenado)
         System.out.println("\nVetor Crescente: ");
-        mergeSort.mergeSort(sortedArray.clone(), 0, sortedArray.clone().length-1);
+        mergeSort.mergeSort(sortedArray.clone(), 0, sortedArray.clone().length - 1);
         mergeSort.relatorioMergeSort();
 
         // Vetor Decrescente (Ordenado de forma reversa)
         System.out.println("\nVetor Decrescente: ");
-        mergeSort.mergeSort(reverseSortedArray.clone(), 0, reverseSortedArray.clone().length-1);
+        mergeSort.mergeSort(reverseSortedArray.clone(), 0, reverseSortedArray.clone().length - 1);
         mergeSort.relatorioMergeSort();
 
         // Merge Sort não faz trocas, faz inserções de forma ordenada em um novo array
     }
-
 
 }
