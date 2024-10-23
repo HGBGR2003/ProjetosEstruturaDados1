@@ -30,7 +30,8 @@ public class CircularSortedSinglyLinkedList<T extends Comparable<?>>
 
   @Override
   public String listContent() {
-    // TODO Auto-generated method stub
+    
+   
     throw new UnsupportedOperationException("Unimplemented method 'listContent'");
   }
 
@@ -44,6 +45,8 @@ public class CircularSortedSinglyLinkedList<T extends Comparable<?>>
       this.loopFinal = elemento;
       this.last = elemento;
     } 
+
+
     
     
   
@@ -53,14 +56,31 @@ public class CircularSortedSinglyLinkedList<T extends Comparable<?>>
 
   @Override
   public void clearNavigation() {
-    // TODO Auto-generated method stub
+
+    if (this.first == null | this.last == null) {
+      throw new IllegalArgumentException("Valor não limpo");
+    }else{
+      this.nextPointer = this.first;
+    }
+
     throw new UnsupportedOperationException("Unimplemented method 'clearNavigation'");
   }
 
   @Override
   public T getNextElement() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getNextElement'");
+
+    if (this.first == null || this.last == null) {
+      return null;
+    }
+
+    if (this.nextPointer == null) {
+      return null;
+    }
+
+    T valueElement = this.nextPointer.getValue();
+    this.nextPointer = this.nextPointer.getNext();
+    return valueElement;
+
   }
 
 }
