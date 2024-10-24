@@ -1,11 +1,9 @@
 package br.com.gomide.list.circular;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Nested;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;       // Para a anotação @Test
+import org.junit.jupiter.api.Nested;     // Para a anotação @Nested
+import static org.junit.jupiter.api.Assertions.*;  // Para asserções como assertEquals, assertTrue, etc.
+import org.junit.jupiter.api.DisplayName; // Para a anotação @DisplayName
 
 public class CircularSortedSinglyLinkedListTest {
 
