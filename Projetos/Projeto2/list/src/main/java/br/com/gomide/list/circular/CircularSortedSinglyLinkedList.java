@@ -10,7 +10,6 @@ public class CircularSortedSinglyLinkedList<T extends Comparable<T>>
     private ListNode<T> first;
     private ListNode<T> last;
     private ListNode<T> nextPointer;
-    private ListNode<T> loopFinal;
 
     @Override
     public boolean remove(T value) {
