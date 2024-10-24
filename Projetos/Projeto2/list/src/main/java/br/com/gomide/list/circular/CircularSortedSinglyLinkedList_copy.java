@@ -134,12 +134,18 @@ public class CircularSortedSinglyLinkedList_copy<T extends Comparable<T>>
             return null;  // Lista vazia
         }
 
+        // Se o ponteiro de navegação não estiver inicializado, comece do primeiro
         if (nextPointer == null) {
-            return null;
+            nextPointer = first;
         }
 
         T value = nextPointer.getValue();
-        nextPointer = nextPointer.getNext();  // Avança para o próximo (circular)
+
+        // Avança para o próximo elemento e, se chegar no fim, retorna ao início
+        nextPointer = nextPointer.getNext();
+        if (nextPointer == null) {  // Se chegamos ao final da lista (não deveria acontecer em uma lista circular)
+            nextPointer = first;  // Reinicia a navegação
+        }
 
         return value;
     }
