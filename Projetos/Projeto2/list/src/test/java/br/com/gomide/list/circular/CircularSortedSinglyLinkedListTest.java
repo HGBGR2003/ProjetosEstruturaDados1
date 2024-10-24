@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 
-public class CircularSortedSinglyLinkedListCopyTest {
+public class CircularSortedSinglyLinkedListTest {
 
     @Test
     @DisplayName("retrieve an empty list")
     public void retrieveAnEmptyList() {
-        CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+        CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
         String content = list.listContent();
 
@@ -26,7 +26,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("insert elements in order successfully")
         public void insertElementsInOrderSuccessfully() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(5);
             list.insert(2);
@@ -46,7 +46,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("find an existing element")
         public void findAnExistingElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -61,7 +61,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("does not find an element")
         public void doesNotFindAnElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -81,7 +81,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("remove an existing element")
         public void removeAnExistingElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -98,7 +98,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("remove the first element")
         public void removeTheFirstElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -115,7 +115,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("remove the last element")
         public void removeTheLastElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -132,7 +132,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("does not remove an element")
         public void doesNotRemoveAnElement() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -154,11 +154,12 @@ public class CircularSortedSinglyLinkedListCopyTest {
         @Test
         @DisplayName("navigate through all elements in a circular manner")
         public void navigateThroughAllElements() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
             list.insert(8);
+            list.insert(9);
 
             Integer element = list.getNextElement();
             assertEquals(2, element);
@@ -171,13 +172,16 @@ public class CircularSortedSinglyLinkedListCopyTest {
 
             // Circular behavior - after the last element, it should restart
             element = list.getNextElement();
+            assertEquals(9, element);
+
+            element = list.getNextElement();
             assertEquals(2, element);
         }
 
         @Test
         @DisplayName("restart navigation pointer after manually resetting")
         public void restartNavigationPointerAfterResetting() {
-            CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+            CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
             list.insert(2);
             list.insert(5);
@@ -199,7 +203,7 @@ public class CircularSortedSinglyLinkedListCopyTest {
     @Test
     @DisplayName("clear a list")
     public void clearAListWithElements() {
-        CircularSortedSinglyLinkedList_copy<Integer> list = new CircularSortedSinglyLinkedList_copy<Integer>();
+        CircularSortedSinglyLinkedList<Integer> list = new CircularSortedSinglyLinkedList<Integer>();
 
         list.insert(2);
         list.insert(5);
