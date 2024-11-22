@@ -1,1 +1,1 @@
-Novo projeto focado na realização de comparação em Estrutura de Dados usando métodos de organização.
+Projeto Final envolvendo pilhas, na resolução do problema de historico de navegação.
