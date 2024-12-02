@@ -4,21 +4,19 @@ import java.util.Stack;
 
 public class HistoricoDeNavegacao {
 
-    Stack dados = new Stack<>();
+    Stack <String> dados = new Stack<>();
 
-    @SuppressWarnings("unchecked")
+  
     public void adicionarPagina(String url){
     
-            try {
-                if (url == null || url.isEmpty()) {
-                    System.out.println("Erro!");
-                }
-            } catch (Exception e) {
-                System.out.println("Não Funcionou");
-            }
-
+        if (url == null || url.isEmpty()) {
+            System.out.println("Erro!");
+        }else{
             dados.push(url);
-            System.out.println(dados);
+        }
+                    
+        System.out.println(dados);
+
     }
 
     public String voltar(){
@@ -34,7 +32,8 @@ public class HistoricoDeNavegacao {
     }
 
     public void limparHistorico(){
-        dados.clear();
+        dados.removeAllElements();
     }
     
 }
+
