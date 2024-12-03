@@ -10,39 +10,39 @@ public class HistoricoNavegacaoTest {
     @Test
     public void testAdicionarPagina() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        assertEquals("Nenhuma página anterior", historico.voltar());
+        historico.adicionarPagina("https://www.instagram.com/");
+        assertEquals("Nenhuma página para voltar", historico.voltar());
     }
 
     @Test
     public void testVoltarParaPaginaAnterior() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
-        assertEquals("www.exemplo1.com", historico.voltar());
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
+        assertEquals("https://www.instagram.com/", historico.voltar());
     }
 
     @Test
     public void testAvancarParaProximaPagina() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
         historico.voltar();
-        assertEquals("www.exemplo2.com", historico.avancar());
+        assertEquals("https://x.com/", historico.avancar());
     }
 
     @Test
     public void testHistoricoComVariasPaginas() {
         HistoricoNavegacao historico = new HistoricoNavegacao(); // Declaração e inicialização
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
-        historico.adicionarPagina("www.exemplo3.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
+        historico.adicionarPagina("https://web.whatsapp.com/");
 
-        // Voltar uma vez, deve ir para www.exemplo2.com
-        assertEquals("www.exemplo2.com", historico.voltar());
+        // Voltar uma vez, deve ir para https://x.com/
+        assertEquals("https://x.com/", historico.voltar());
 
-        // Voltar novamente, deve ir para www.exemplo1.com
-        assertEquals("www.exemplo1.com", historico.voltar());
+        // Voltar novamente, deve ir para https://www.instagram.com/
+        assertEquals("https://www.instagram.com/", historico.voltar());
 
         // Tentar voltar novamente, mas não há mais páginas
         assertEquals("Nenhuma página para voltar", historico.voltar());
@@ -51,8 +51,8 @@ public class HistoricoNavegacaoTest {
     @Test
     public void testLimparHistorico() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
         historico.limparHistorico();
         assertEquals("Nenhuma página para voltar", historico.voltar());
     }
@@ -60,9 +60,9 @@ public class HistoricoNavegacaoTest {
     @Test
     public void testExibirHistorico() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
-        historico.adicionarPagina("www.exemplo3.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
+        historico.adicionarPagina("https://web.whatsapp.com/");
 
         assertDoesNotThrow(() -> historico.exibirHistorico());
     }
@@ -83,8 +83,8 @@ public class HistoricoNavegacaoTest {
     @Test
     public void testAvancarAposLimpar() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
         historico.voltar();
         historico.limparHistorico();
         assertEquals("Nenhuma página para avançar", historico.avancar());

@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         HistoricoNavegacao historico = new HistoricoNavegacao();
 
-        historico.adicionarPagina("www.exemplo1.com");
-        historico.adicionarPagina("www.exemplo2.com");
-        historico.adicionarPagina("www.exemplo3.com");
+        historico.adicionarPagina("https://www.instagram.com/");
+        historico.adicionarPagina("https://x.com/");
+        historico.adicionarPagina("https://web.whatsapp.com/");
 
         historico.exibirHistorico();
 
