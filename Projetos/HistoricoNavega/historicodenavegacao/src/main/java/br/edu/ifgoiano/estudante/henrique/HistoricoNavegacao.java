@@ -4,18 +4,17 @@ import java.util.Stack;
 
 public class HistoricoNavegacao {
 
-    private Stack<String> historico; // Pilha principal para armazenar o histórico de navegação
-    private Stack<String> pilhaAvancar; // Pilha auxiliar para "Avançar"
+    private Stack<String> historico;
+    private Stack<String> pilhaAvancar;
 
     public HistoricoNavegacao() {
         historico = new Stack<>();
         pilhaAvancar = new Stack<>();
     }
 
-    // Adiciona uma nova página ao histórico
     public void adicionarPagina(String url) {
         historico.push(url);
-        pilhaAvancar.clear(); // Limpa a pilha de avançar, pois ao adicionar nova página não há páginas futuras
+        pilhaAvancar.clear();
     }
 
     public String voltar() {
@@ -30,7 +29,6 @@ public class HistoricoNavegacao {
         }
     }
 
-    // Avança para a próxima página
     public String avancar() {
         if (!pilhaAvancar.isEmpty()) {
             String proximaPagina = pilhaAvancar.pop();
@@ -41,7 +39,6 @@ public class HistoricoNavegacao {
         }
     }
 
-    // Exibe o histórico na ordem FILO
     public void exibirHistorico() {
         if (historico.isEmpty()) {
             System.out.println("Histórico vazio");
@@ -54,7 +51,6 @@ public class HistoricoNavegacao {
         }
     }
 
-    // Limpa todo o histórico
     public void limparHistorico() {
         historico.clear();
         pilhaAvancar.clear();

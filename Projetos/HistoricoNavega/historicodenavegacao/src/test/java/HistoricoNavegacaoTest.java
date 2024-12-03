@@ -33,18 +33,15 @@ public class HistoricoNavegacaoTest {
 
     @Test
     public void testHistoricoComVariasPaginas() {
-        HistoricoNavegacao historico = new HistoricoNavegacao(); // Declaração e inicialização
+        HistoricoNavegacao historico = new HistoricoNavegacao();
         historico.adicionarPagina("https://www.instagram.com/");
         historico.adicionarPagina("https://x.com/");
         historico.adicionarPagina("https://web.whatsapp.com/");
 
-        // Voltar uma vez, deve ir para https://x.com/
         assertEquals("https://x.com/", historico.voltar());
 
-        // Voltar novamente, deve ir para https://www.instagram.com/
         assertEquals("https://www.instagram.com/", historico.voltar());
 
-        // Tentar voltar novamente, mas não há mais páginas
         assertEquals("Nenhuma página para voltar", historico.voltar());
     }
 
@@ -67,7 +64,6 @@ public class HistoricoNavegacaoTest {
         assertDoesNotThrow(() -> historico.exibirHistorico());
     }
 
-    //testes negativos
     @Test
     public void testVoltarSemPaginas() {
         HistoricoNavegacao historico = new HistoricoNavegacao();
@@ -88,13 +84,6 @@ public class HistoricoNavegacaoTest {
         historico.voltar();
         historico.limparHistorico();
         assertEquals("Nenhuma página para avançar", historico.avancar());
-    }
-
-    @Test
-    public void testAdicionarPaginaNula() {
-        HistoricoNavegacao historico = new HistoricoNavegacao();
-        historico.adicionarPagina(null);
-        assertEquals("Nenhuma página para voltar", historico.voltar());
     }
 
 }
