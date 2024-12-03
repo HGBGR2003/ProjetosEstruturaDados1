@@ -6,7 +6,6 @@ public class HistoricoDeNavegacao {
 
     Stack <String> dados = new Stack<>();
 
-  
     public void adicionarPagina(String url){
     
         if (url == null || url.isEmpty()) {
@@ -19,20 +18,38 @@ public class HistoricoDeNavegacao {
 
     }
 
+
     public String voltar(){
         return "Voltei";
     }
+
 
     public String avancar(){
         return "Avançei";
     }
 
-    public void exibirHistorico(){
 
+    public void exibirHistorico(){
+        StringBuilder guardarDados = new StringBuilder();
+        @SuppressWarnings("unchecked")
+        Stack <Integer> copia = (Stack<Integer>) dados.clone();
+
+        while (!copia.isEmpty()) {
+            guardarDados.append(copia.pop()).append(" ");
+        }
+
+        System.out.println(" [ " + guardarDados + "]");
+      
     }
+    
 
     public void limparHistorico(){
-        dados.removeAllElements();
+        if (!dados.empty()) {
+            dados.clear();
+            System.out.println("---------------------");
+            System.out.println("Limpou!");
+        }
+
     }
     
 }
