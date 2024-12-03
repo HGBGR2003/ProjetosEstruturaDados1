@@ -18,16 +18,15 @@ public class HistoricoNavegacao {
         pilhaAvancar.clear(); // Limpa a pilha de avançar, pois ao adicionar nova página não há páginas futuras
     }
 
-    // Volta para a página anterior
     public String voltar() {
         if (historico.size() > 1) { // Certifica-se de que há pelo menos uma página anterior
             String paginaAtual = historico.pop(); // Remove a página atual
-            pilhaAvancar.push(paginaAtual); // Move para a pilha de avançar
-            return historico.peek(); // Retorna a próxima página no topo
-        } else if (historico.isEmpty()) {
+            pilhaAvancar.push(paginaAtual); // Move a página atual para a pilha de avançar
+            return historico.peek(); // Retorna a página anterior
+        } else if (historico.size() == 1) { // Apenas uma página no histórico
+            return "Nenhuma página para voltar"; // Não há páginas anteriores
+        } else { // Histórico está vazio
             return "Nenhuma página para voltar";
-        } else {
-            return historico.peek(); // Apenas 1 página no histórico
         }
     }
 
