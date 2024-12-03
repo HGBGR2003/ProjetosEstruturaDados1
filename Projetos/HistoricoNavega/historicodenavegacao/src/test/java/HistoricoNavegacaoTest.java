@@ -75,6 +75,12 @@ public class HistoricoNavegacaoTest {
         HistoricoNavegacao historico = new HistoricoNavegacao();
         assertEquals("Nenhuma página para avançar", historico.avancar());
     }
+   
+    @Test
+    public void testExibirHistoricoVazio() {
+        HistoricoNavegacao historico = new HistoricoNavegacao();
+        assertDoesNotThrow(() -> historico.exibirHistorico());
+    }
 
     @Test
     public void testAvancarAposLimpar() {
